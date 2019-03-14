@@ -32,5 +32,5 @@ install_SUMO = function() {
 #' @export
 #' @rdname install_SUMO
 SUMO_version = function() {
-  system("sumof --version", intern = TRUE)[1]
+  system("sumo --version", intern = TRUE)[1]
 }
