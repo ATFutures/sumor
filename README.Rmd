@@ -1,0 +1,37 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+# sumor
+
+The goal of sumor is to provide an interface to SUMO.
+Install and load it with:
+
+```{r, message=FALSE}
+remotes::install_github("ATFutures/sumor")
+library(sumor)
+```
+
+
+How to install SUMO?
+
+```{r}
+install_SUMO()
+```
+
+
+What version is installed?
+
+```{r}
+SUMO_version()
+```
