@@ -3,6 +3,9 @@
 #' See installation options here:
 #' https://sumo.dlr.de/wiki/Simulation_of_Urban_MObility_-_Wiki
 #'
+#' This will provide OS-specific instructions for installing SUMO.
+#' Test your installation has worked with: `SUMO_version()`
+#'
 #' @export
 install_SUMO = function() {
 
@@ -25,4 +28,9 @@ install_SUMO = function() {
     }
   }
 
+}
+#' @export
+#' @rdname install_SUMO
+SUMO_version = function() {
+  system("sumof --version", intern = TRUE)[1]
 }

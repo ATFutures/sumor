@@ -2,11 +2,18 @@
 % Please edit documentation in R/install.R
 \name{install_SUMO}
 \alias{install_SUMO}
+\alias{SUMO_version}
 \title{Install SUMO}
 \usage{
 install_SUMO()
+
+SUMO_version()
 }
 \description{
 See installation options here:
 https://sumo.dlr.de/wiki/Simulation_of_Urban_MObility_-_Wiki
+}
+\details{
+This will provide OS-specific instructions for installing SUMO.
+Test your installation has worked with: `SUMO_version()`
 }
