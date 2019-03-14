@@ -25,7 +25,4 @@ install_SUMO = function() {
     }
   }
 
-  cat("\nInstallation complete.\n\n")
-
 }
-
