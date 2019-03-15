@@ -33,6 +33,7 @@ install_SUMO = function() {
     }
   } else if (is_win) {
     # replace with windows/mac installation ...
+    message("please manually download from https://www.dlr.de/ts/en/Portaldata/16/Resources/projekte/sumo/sumo-win64-1.1.0.msi")
     stop("Unable to install SUMO. Windows is not supported (for now).")
   } else if (is_linux) {
     type = Sys.info()['version']
