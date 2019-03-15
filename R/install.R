@@ -14,18 +14,27 @@ install_SUMO = function() {
   is_mac = Sys.info()['sysname'] == "Darwin" # is that right?
   is_win = Sys.info()['sysname'] == "Windows" # is that right?
 
-  
-  if( is_mac) {
-  #  reference: https://sumo.dlr.de/wiki/Installing/MacOS_Build_w_Homebrew
+  install_mac <- function(){
+    #  reference: https://sumo.dlr.de/wiki/Installing/MacOS_Build_w_Homebrew
     system('ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-')
-    system('brew tap dlr-ts/sumo')
-    system('brew install sumo')
+           ')
+    system('HOMEBREW_NO_AUTO_UPDATE=1 brew tap dlr-ts/sumo')
+    system('HOMEBREW_NO_AUTO_UPDATE=1 brew install sumo')
   }
-  
-  if (!is_linux) {
+
+
+  if(is_mac) {
+    is_exist_mac <- system("brew list |grep sumo",intern = TRUE) == "sumo"
+
+    if(is_exist_mac){
+      message(sprintf("SUMO is already exist under %s", SUMO_version()))
+    } else {
+      install_mac()
+    }
+  } else if (is_win) {
     # replace with windows/mac installation ...
-    stop("Unable to install SUMO. Only Linux is supported (for now).")
+    message("please manually download from https://www.dlr.de/ts/en/Portaldata/16/Resources/projekte/sumo/sumo-win64-1.1.0.msi")
+    stop("Unable to install SUMO. Windows is not supported (for now).")
   } else if (is_linux) {
     type = Sys.info()['version']
     if(grepl(pattern = "Ubuntu", type)) {
