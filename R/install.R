@@ -14,6 +14,15 @@ install_SUMO = function() {
   is_mac = Sys.info()['sysname'] == "Darwin" # is that right?
   is_win = Sys.info()['sysname'] == "Windows" # is that right?
 
+  
+  if( is_mac) {
+  #  reference: https://sumo.dlr.de/wiki/Installing/MacOS_Build_w_Homebrew
+    system('ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+')
+    system('brew tap dlr-ts/sumo')
+    system('brew install sumo')
+  }
+  
   if (!is_linux) {
     # replace with windows/mac installation ...
     stop("Unable to install SUMO. Only Linux is supported (for now).")
